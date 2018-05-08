@@ -150,7 +150,7 @@ export class SignalRConnection implements ISignalRConnection {
                 sStatus.next(new ConnectionStatus(change.newState));
             });
         });
-        return sStatus;
+        return sStatus.asObservable();
     }
 
     private onBroadcastEventReceived<T>(listener: BroadcastEventListener<T>, ...args: any[]) {
